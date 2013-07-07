@@ -12,8 +12,8 @@ class StudentScraper
       doc = fetch_doc(link) #=> returns nokogiri doc
       student = scrape_student_info(doc) #=> student hash
       content = scrape_content_info(doc, index) #=> array of content hashes
-      p student
-      p content
+      Student.create(student)
+      Nugget.create(content)
     end
   end
 
@@ -26,7 +26,7 @@ class StudentScraper
     student = {}
     student[:name] = doc.search(".ib_main_header").text
     student[:image_url] = doc.search("img.student_pic").attr("src").value
-    student[:quote] = doc.search(".quote-div h3").text
+    student[:tagline] = doc.search(".quote-div h3").text
 
     social_links = doc.search(".social-icons a").collect { |link| link.attr("href") }
     student[:twitter_url]  = social_links[0]
@@ -49,7 +49,7 @@ class StudentScraper
       content_box[:student_id] = student_id + 1
       content_box[:section_id] = index + 1
       content_box[:title] = box.search("h3").text
-      content_box[:body_text] = box.text.strip.split("\n")[1..-1].join("\n").strip.gsub(/ {1,}/,' ')
+      content_box[:body] = box.text.strip.split("\n")[1..-1].join("\n").strip.gsub(/ {1,}/,' ')
       content << content_box
     end
     return content

@@ -1,17 +1,11 @@
 class StudentsController < ApplicationController
 
-
-  def scrape
-    scraper = StudentScraper.new
-  end
-
-
   # GET /students
   # GET /students.json
   def index
     @students = Student.all
     if @students.count.zero?
-      scrape
+      StudentScraper.new # runs scraper
       @students = Student.all
     end
 
