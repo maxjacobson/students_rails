@@ -1,10 +1,19 @@
 class StudentsController < ApplicationController
+
+
+  def scrape
+    scraper = StudentScraper.new
+  end
+
+
   # GET /students
   # GET /students.json
   def index
-    calc = Calculator.new(5, 7, "*")
-    @readout = calc.readout
     @students = Student.all
+    if @students.count.zero?
+      scrape
+      @students = Student.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
