@@ -50,6 +50,16 @@
   <%= @student.coderwall_url %>
 </p>
 
+<hr>
+
+<h2>NUGGETS</h2>
+
+<% @nuggets.each do |nugget| %>
+  <h3><%= nugget.title %></h3>
+  <p><%= nugget.body %></p>
+<% end %>
+
+
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
