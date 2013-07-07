@@ -2,6 +2,8 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
+    calc = Calculator.new(5, 7, "*")
+    @readout = calc.readout
     @students = Student.all
 
     respond_to do |format|
