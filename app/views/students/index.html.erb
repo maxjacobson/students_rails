@@ -1,0 +1,41 @@
+<h1>Listing students</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Image url</th>
+    <th>Tagline</th>
+    <th>Twitter url</th>
+    <th>Linkedin url</th>
+    <th>Github url</th>
+    <th>Blog url</th>
+    <th>Treehouse url</th>
+    <th>Codeschool url</th>
+    <th>Coderwall url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @students.each do |student| %>
+  <tr>
+    <td><%= student.name %></td>
+    <td><%= student.image_url %></td>
+    <td><%= student.tagline %></td>
+    <td><%= student.twitter_url %></td>
+    <td><%= student.linkedin_url %></td>
+    <td><%= student.github_url %></td>
+    <td><%= student.blog_url %></td>
+    <td><%= student.treehouse_url %></td>
+    <td><%= student.codeschool_url %></td>
+    <td><%= student.coderwall_url %></td>
+    <td><%= link_to 'Show', student %></td>
+    <td><%= link_to 'Edit', edit_student_path(student) %></td>
+    <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student', new_student_path %>

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  image_url: MyString
+  tagline: MyString
+  twitter_url: MyString
+  linkedin_url: MyString
+  github_url: MyString
+  blog_url: MyString
+  treehouse_url: MyString
+  codeschool_url: MyString
+  coderwall_url: MyString
+
+two:
+  name: MyString
+  image_url: MyString
+  tagline: MyString
+  twitter_url: MyString
+  linkedin_url: MyString
+  github_url: MyString
+  blog_url: MyString
+  treehouse_url: MyString
+  codeschool_url: MyString
+  coderwall_url: MyString
